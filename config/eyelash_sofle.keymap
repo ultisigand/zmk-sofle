@@ -1,13 +1,13 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <input/processors.dtsi>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/rgb.h>
 
 /*
 
@@ -47,55 +47,81 @@
         tap-ms = <30>;
     };
 
-    Space_hold: Space_hold {
+    hold2layer: hold2layer {
         compatible = "zmk,behavior-hold-tap";
-        label = "SPACE_HOLD";
+        label = "HOLD2LAYER";
         bindings = <&mo>, <&kp>;
 
         #binding-cells = <2>;
         tapping-term-ms = <120>;
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        under_line {
+            bindings = <&kp UNDER>;
+            key-positions = <40 41>;
+        };
+
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <41 42>;
+        };
+
+        plus {
+            bindings = <&kp LS(EQUAL)>;
+            key-positions = <42 43>;
+        };
+
+        equal {
+            bindings = <&kp EQUAL>;
+            key-positions = <43 44>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        Base_layer {
+        BASE_layer {
             bindings = <
-&kp GRAVE   &kp F1        &kp F2        &kp F3  &kp F4               &kp F5       &kp UP_ARROW     &kp F6          &kp F7               &kp F8     &kp F9           &kp N0      &kp BACKSPACE
-&kp TAB     &kp Q         &kp W         &kp E   &kp R                &kp T        &kp DOWN_ARROW   &kp Y           &kp U                &kp I      &kp O            &kp P       &kp BSLH
-&kp ESC     &kp A         &kp S         &kp D   &kp F                &kp G        &kp LEFT_ARROW   &kp H           &kp J                &kp K      &kp L            &kp SEMI    &kp ENTER
-&kp LSHFT   &kp Z         &kp X         &kp C   &kp V                &kp B        &kp RIGHT_ARROW  &kp N           &kp M                &kp COMMA  &kp DOT          &kp FSLH    &kp DEL
-&kp C_MUTE  &kp LEFT_ALT  &kp LEFT_GUI  &mo 2   &Space_hold 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &Space_hold 1 SPACE  &mo 3      &kp RIGHT_SHIFT  &kp DELETE
+&kp GRAVE          &kp F1        &kp F2        &kp F3  &kp F4               &kp F5       &kp UP_ARROW     &kp F6          &kp F7               &kp F8     &kp F9      &kp F10    &kp BACKSPACE
+&kp TAB            &kp Q         &kp W         &kp E   &kp R                &kp T        &kp DOWN_ARROW   &kp Y           &kp U                &kp I      &kp O       &kp P      &kp BSLH
+&hold2layer 2 ESC  &kp A         &kp S         &kp D   &kp F                &kp G        &kp LEFT_ARROW   &kp H           &kp J                &kp K      &kp L       &kp SEMI   &kp ENTER
+&kp LSHFT          &kp Z         &kp X         &kp C   &kp V                &kp B        &kp RIGHT_ARROW  &kp N           &kp M                &kp COMMA  &kp DOT     &kp FSLH   &kp RIGHT_SHIFT
+&kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 4      &bl BL_TOG  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "LAYER0";
+            display-name = "BASE";
         };
 
-        Navi_Layer {
+        NAVI_Layer {
             bindings = <
-&kp GRAVE   &kp LS(N1)       &kp LS(N2)      &kp LS(N3)       &kp LS(N4)       &kp LS(N5)         &mmv MOVE_UP     &kp LS(N6)       &kp LS(N7)       &kp LS(N8)  &kp LS(N9)  &kp LS(N0)        &trans
-&trans      &kp N1           &kp NUMBER_2    &kp N3           &kp N4           &kp N5             &mmv MOVE_DOWN   &kp N6           &kp N7           &kp N8      &kp N9      &kp N0            &kp EQUAL
-&trans      &kp TILDE        &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp LEFT         &kp DOWN         &kp UP      &kp RIGHT   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11     &kp F12           &trans
-&kp C_MUTE  &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans      &trans      &trans
+&kp GRAVE   &kp LS(N1)  &kp LS(N2)    &kp LS(N3)  &kp LS(N4)  &kp LS(N5)       &mmv MOVE_UP     &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)  &trans
+&trans      &kp N1      &kp NUMBER_2  &kp N3      &kp N4      &kp N5           &mmv MOVE_DOWN   &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp EQUAL
+&trans      &trans      &trans        &trans      &trans      &kp PAGE_UP      &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
+&trans      &trans      &trans        &trans      &trans      &kp PAGE_DOWN    &mmv MOVE_RIGHT  &trans      &trans      &trans      &trans      &trans      &trans
+&kp C_MUTE  &trans      &trans        &trans      &trans      &trans           &mkp LCLK        &trans      &trans      &trans      &trans      &trans
             >;
 
-            display-name = "layer1";
+            display-name = "NAVI";
             sensor-bindings = <&scroll_encoder>;
         };
 
         NUM_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans           &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N1  &kp N2  &kp N3  &kp PLUS         &kp MINUS        &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N4  &kp N5  &kp N6  &kp KP_MULTIPLY  &kp KP_DIVIDE    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N7  &kp N8  &kp N9  &trans           &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans           &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans           &trans  &trans  &trans           &kp DELETE         &trans  &trans  &trans          &trans     &trans    &trans     &trans
+&trans  &kp N1           &kp N2  &kp N3  &kp KP_DOT       &kp BACKSPACE      &trans  &trans  &kp UNDERSCORE  &kp MINUS  &kp PLUS  &kp EQUAL  &trans
+&trans  &kp N4           &kp N5  &kp N6  &kp KP_PLUS      &kp KP_SUBTRACT    &trans  &trans  &trans          &trans     &trans    &trans     &trans
+&trans  &kp N7           &kp N8  &kp N9  &kp KP_MULTIPLY  &kp KP_DIVIDE      &trans  &trans  &trans          &trans     &trans    &trans     &trans
+&trans  &kp KP_NUMBER_0  &trans  &trans  &trans           &trans             &trans  &trans  &trans          &trans     &trans    &trans
             >;
+
+            label = "NUM";
         };
 
-        FUN_layer {
+        FUNC_layer1 {
             bindings = <
 &kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
 &trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
@@ -105,9 +131,10 @@
             >;
 
             sensor-bindings = <&scroll_encoder>;
+            label = "FUNC1";
         };
 
-        layer_4 {
+        FUNC_layer2 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -115,6 +142,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
+
+            label = "FUNC2";
         };
 
         layer_5 {
