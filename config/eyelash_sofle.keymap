@@ -71,29 +71,7 @@
         bindings = <&bl BL_CYCLE>, <&bl BL_CYCLE>;
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        under_line {
-            bindings = <&kp UNDER>;
-            key-positions = <40 41>;
-        };
-
-        minus {
-            bindings = <&kp MINUS>;
-            key-positions = <41 42>;
-        };
-
-        plus {
-            bindings = <&kp LS(EQUAL)>;
-            key-positions = <42 43>;
-        };
-
-        equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <43 44>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         insert_math: insert_math {
