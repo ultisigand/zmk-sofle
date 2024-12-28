@@ -56,6 +56,20 @@
         tapping-term-ms = <120>;
     };
 
+    shift2cap: shift2cap {
+        compatible = "zmk,behavior-tap-dance";
+        label = "SHIFT2CAP";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+    };
+
+    light_control: light_control {
+        compatible = "zmk,behavior-tap-dance";
+        label = "LIGHT_CONTROL";
+        #binding-cells = <0>;
+        bindings = <&bl BL_CYCLE>, <&bl BL_CYCLE>;
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -85,11 +99,11 @@
 
         BASE_layer {
             bindings = <
-&kp GRAVE          &kp F1        &kp F2        &kp F3  &kp F4               &kp F5       &kp UP_ARROW     &kp F6          &kp F7               &kp F8     &kp F9      &kp F10    &kp BACKSPACE
-&kp TAB            &kp Q         &kp W         &kp E   &kp R                &kp T        &kp DOWN_ARROW   &kp Y           &kp U                &kp I      &kp O       &kp P      &kp BSLH
-&hold2layer 2 ESC  &kp A         &kp S         &kp D   &kp F                &kp G        &kp LEFT_ARROW   &kp H           &kp J                &kp K      &kp L       &kp SEMI   &kp ENTER
-&kp LSHFT          &kp Z         &kp X         &kp C   &kp V                &kp B        &kp RIGHT_ARROW  &kp N           &kp M                &kp COMMA  &kp DOT     &kp FSLH   &kp RIGHT_SHIFT
-&kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 4      &bl BL_TOG  &kp RCTRL
+&kp GRAVE          &kp N1        &kp N2        &kp N3  &kp N4               &kp N5       &kp UP_ARROW     &kp N6          &kp N7               &kp N8     &kp N9          &kp N0     &kp BACKSPACE
+&kp TAB            &kp Q         &kp W         &kp E   &kp R                &kp T        &kp DOWN_ARROW   &kp Y           &kp U                &kp I      &kp O           &kp P      &kp BSLH
+&hold2layer 2 ESC  &kp A         &kp S         &kp D   &kp F                &kp G        &kp LEFT_ARROW   &kp H           &kp J                &kp K      &kp L           &kp SEMI   &kp ENTER
+&kp LSHFT          &kp Z         &kp X         &kp C   &kp V                &kp B        &kp RIGHT_ARROW  &kp N           &kp M                &kp COMMA  &kp DOT         &kp FSLH   &kp RIGHT_SHIFT
+&kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 4      &light_control  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -111,11 +125,11 @@
 
         NUM_layer {
             bindings = <
-&trans  &trans           &trans  &trans  &trans           &kp DELETE         &trans  &trans  &trans          &trans     &trans    &trans     &trans
-&trans  &kp N1           &kp N2  &kp N3  &kp KP_DOT       &kp BACKSPACE      &trans  &trans  &kp UNDERSCORE  &kp MINUS  &kp PLUS  &kp EQUAL  &trans
-&trans  &kp N4           &kp N5  &kp N6  &kp KP_PLUS      &kp KP_SUBTRACT    &trans  &trans  &trans          &trans     &trans    &trans     &trans
-&trans  &kp N7           &kp N8  &kp N9  &kp KP_MULTIPLY  &kp KP_DIVIDE      &trans  &trans  &trans          &trans     &trans    &trans     &trans
-&trans  &kp KP_NUMBER_0  &trans  &trans  &trans           &trans             &trans  &trans  &trans          &trans     &trans    &trans
+&kp DELETE  &kp F1           &kp F2  &kp F3  &kp F4           &kp F5             &trans  &kp F6         &kp F7     &kp F8         &kp F9     &kp F10  &trans
+&trans      &kp N1           &kp N2  &kp N3  &kp KP_DOT       &kp BACKSPACE      &trans  &kp LS(MINUS)  &kp MINUS  &kp LS(EQUAL)  &kp EQUAL  &kp F11  &kp F12
+&trans      &kp N4           &kp N5  &kp N6  &kp KP_PLUS      &kp KP_SUBTRACT    &trans  &trans         &trans     &trans         &trans     &trans   &trans
+&trans      &kp N7           &kp N8  &kp N9  &kp KP_MULTIPLY  &kp KP_DIVIDE      &trans  &trans         &trans     &trans         &trans     &trans   &trans
+&trans      &kp KP_NUMBER_0  &trans  &trans  &trans           &trans             &trans  &trans         &trans     &trans         &trans     &trans
             >;
 
             label = "NUM";
@@ -123,11 +137,11 @@
 
         FUNC_layer1 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans          &trans        &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
