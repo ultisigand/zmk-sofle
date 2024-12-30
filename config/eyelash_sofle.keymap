@@ -71,7 +71,29 @@
         bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_TOG>;
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        underscore {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <40 41>;
+        };
+
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <41 42>;
+        };
+
+        plus {
+            bindings = <&kp PLUS>;
+            key-positions = <42 43>;
+        };
+
+        equal {
+            bindings = <&kp EQUAL>;
+            key-positions = <43 44>;
+        };
+    };
 
     macros {
         insert_math: insert_math {
