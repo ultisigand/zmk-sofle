@@ -68,7 +68,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "LIGHT_CONTROL";
         #binding-cells = <0>;
-        bindings = <&bl BL_CYCLE>, <&bl BL_CYCLE>;
+        bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_TOG>;
     };
 
     combos { compatible = "zmk,combos"; };
