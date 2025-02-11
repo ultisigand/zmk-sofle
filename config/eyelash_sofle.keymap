@@ -1,13 +1,17 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 35    // 10
+
 #include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
     zip_scroll_scaler: zip_scroll_scaler {
@@ -78,7 +82,7 @@
 &kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 3      &light_control  &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp BACKSPACE LC(BACKSPACE)>, <&kp Z>;
+            sensor-bindings = <&inc_dec_kp BACKSPACE LC(Z)>, <&kp Z>;
 
             display-name = "BASE";
             display-name = "BASE";
