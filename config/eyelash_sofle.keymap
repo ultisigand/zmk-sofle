@@ -82,9 +82,7 @@
 &kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 3      &light_control  &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(Z) BACKSPACE>, <&kp Z>;
-
-            display-name = "BASE";
+            sensor-bindings = <&scroll_encoder>;
             display-name = "BASE";
         };
 
@@ -97,7 +95,6 @@
 &kp C_MUTE  &trans         &trans        &trans          &trans           &trans           &mkp LCLK        &trans    &trans    &trans                &trans                 &trans
             >;
 
-            display-name = "NAVI";
             sensor-bindings = <&scroll_encoder>;
             display-name = "NAVI";
         };
