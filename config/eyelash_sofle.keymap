@@ -83,7 +83,7 @@
 &kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 3      &light_control  &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp BACKSPACE LC(Z)>, <&kp Z>;
+            sensor-bindings = <&inc_dec_kp BACKSPACE LC(BACKSPACE)>, <&kp Z>;
 
             display-name = "BASE";
         };
