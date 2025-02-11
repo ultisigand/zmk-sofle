@@ -38,7 +38,7 @@
     acceleration-exponent = <1>;
 };
 
-
+/ {
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
