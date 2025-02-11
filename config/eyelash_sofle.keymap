@@ -49,7 +49,6 @@
 
     hold2layer: hold2layer {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOLD2LAYER";
         bindings = <&mo>, <&kp>;
 
         #binding-cells = <2>;
@@ -58,20 +57,16 @@
 
     shift2cap: shift2cap {
         compatible = "zmk,behavior-tap-dance";
-        label = "SHIFT2CAP";
         #binding-cells = <0>;
         bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
     };
 
     light_control: light_control {
         compatible = "zmk,behavior-tap-dance";
-        label = "LIGHT_CONTROL";
         #binding-cells = <0>;
         bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_TOG>;
     };
 
-    behaviors {
-    };
 
     keymap {
         compatible = "zmk,keymap";
