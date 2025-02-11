@@ -67,6 +67,8 @@
         bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_TOG>;
     };
 
+    behaviors {
+    };
 
     keymap {
         compatible = "zmk,keymap";
