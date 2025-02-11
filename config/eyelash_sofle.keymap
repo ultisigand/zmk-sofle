@@ -83,17 +83,18 @@
 &kp C_MUTE         &kp LEFT_ALT  &kp LEFT_GUI  &mo 3   &hold2layer 1 SPACE  &kp LCTRL    &kp ENTER        &kp LEFT_SHIFT  &hold2layer 1 SPACE  &mo 3      &light_control  &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp BACKSPACE LC(&kp Z)>;
+            sensor-bindings = <&inc_dec_kp BACKSPACE LC(Z)>, <&kp Z>;
+
             display-name = "BASE";
         };
 
         NAVI_Layer {
             bindings = <
-&kp GRAVE     &kp F1         &kp F2        &kp F3          &kp F4           &kp F5           &mmv MOVE_UP     &kp F6    &kp F7    &kp F8                &kp F9                 &kp F10   &trans
-&insert_math  &kp N1         &kp NUMBER_2  &kp N3          &kp N4           &kp N5           &mmv MOVE_DOWN   &kp N6    &kp N7    &kp N8                &kp N9                 &kp N0    &trans
-&trans        &kp LS(MINUS)  &kp MINUS     &kp LS(EQUAL)   &kp EQUAL        &kp PAGE_UP      &mmv MOVE_LEFT   &kp LEFT  &kp DOWN  &kp UP                &kp RIGHT              &kp APOS  &trans
-&trans        &kp LBKT       &kp RBKT      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PAGE_DOWN    &mmv MOVE_RIGHT  &kp F11   &kp F12   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &trans
-&kp C_MUTE    &trans         &trans        &trans          &trans           &trans           &mkp LCLK        &trans    &trans    &trans                &trans                 &trans
+&kp GRAVE   &kp F1         &kp F2        &kp F3          &kp F4           &kp F5           &mmv MOVE_UP     &kp F6    &kp F7    &kp F8                &kp F9                 &kp F10   &trans
+&trans      &kp N1         &kp NUMBER_2  &kp N3          &kp N4           &kp N5           &mmv MOVE_DOWN   &kp N6    &kp N7    &kp N8                &kp N9                 &kp N0    &trans
+&trans      &kp LS(MINUS)  &kp MINUS     &kp LS(EQUAL)   &kp EQUAL        &kp PAGE_UP      &mmv MOVE_LEFT   &kp LEFT  &kp DOWN  &kp UP                &kp RIGHT              &kp APOS  &trans
+&trans      &kp LBKT       &kp RBKT      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PAGE_DOWN    &mmv MOVE_RIGHT  &kp F11   &kp F12   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &trans
+&kp C_MUTE  &trans         &trans        &trans          &trans           &trans           &mkp LCLK        &trans    &trans    &trans                &trans                 &trans
             >;
 
             display-name = "NAVI";
