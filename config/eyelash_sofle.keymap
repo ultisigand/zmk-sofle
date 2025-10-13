@@ -108,11 +108,11 @@
 
         NUM_layer {
             bindings = <
-&trans  &trans  &trans           &trans  &trans           &kp DEL            &trans  &trans  &trans  &trans  &trans        &trans     &trans
-&trans  &kp N1  &kp N2           &kp N3  &kp DEL          &kp BACKSPACE      &trans  &kp N7  &kp N8  &kp N9  &kp PLUS      &kp MINUS  &trans
-&trans  &kp N4  &kp N5           &kp N6  &kp KP_PLUS      &kp KP_SUBTRACT    &trans  &kp N4  &kp N5  &kp N6  &kp ASTERISK  &kp SLASH  &trans
-&trans  &kp N7  &kp N8           &kp N9  &kp KP_MULTIPLY  &kp KP_DIVIDE      &trans  &kp N1  &kp N2  &kp N3  &trans        &trans     &trans
-&trans  &kp N0  &kp RS(LS(DOT))  &trans  &trans           &kp ENTER          &trans  &trans  &trans  &trans  &trans        &trans
+&trans  &trans  &trans           &trans  &trans           &kp DEL            &trans  &kp KP_NUMLOCK   &trans           &trans           &trans        &trans     &trans
+&trans  &kp N1  &kp N2           &kp N3  &kp DEL          &kp BACKSPACE      &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS      &kp MINUS  &trans
+&trans  &kp N4  &kp N5           &kp N6  &kp KP_PLUS      &kp KP_SUBTRACT    &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp SLASH  &trans
+&trans  &kp N7  &kp N8           &kp N9  &kp KP_MULTIPLY  &kp KP_DIVIDE      &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans        &trans     &trans
+&trans  &kp N0  &kp RS(LS(DOT))  &trans  &trans           &kp ENTER          &trans  &trans           &trans           &kp KP_NUMBER_0  &trans        &trans
             >;
 
             display-name = "NUM";
