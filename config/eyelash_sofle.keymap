@@ -65,6 +65,16 @@
         bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_TOG>;
     };
 
+    cap2esc: cap2esc {
+        compatible = "zmk,behavior-hold-tap";
+        label = "CAP2ESC";
+        bindings = <&none>, <&none>;
+
+        #binding-cells = <2>;
+        tapping-term-ms = <100>;
+        flavor = "tap-unless-interrupted";
+    };
+
     combos {
         compatible = "zmk,combos";
 
